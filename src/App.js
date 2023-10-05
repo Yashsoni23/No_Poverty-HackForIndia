@@ -1,14 +1,13 @@
-
-import "./App.css";
+import "./app.css";
 import Home from "./pages/Home/Home";
 import Login from "./components/logger/Login/Login";
 import Signup from "./components/logger/Signup/Signup";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 
-import Events from "./components/Events/ViewEvents"
-import AddEvent from "./components/Events/AddEvent"
-import UpdateEvent from "./components/Events/UpdateEvent"
+import Events from "./components/Events/ViewEvents";
+import AddEvent from "./components/Events/AddEvent";
+import UpdateEvent from "./components/Events/UpdateEvent";
 
 import ViewSession from "./components/sessions/ViewSession/ViewSession";
 
@@ -27,7 +26,7 @@ import Cancel from "./components/Cardalert/failure/Cancel";
 import { UserContextProvider } from "./context/UserContext";
 // import Viewsession from "./components/sessions/ViewSession/ViewSession";
 import Editsession from "./components/sessions/Editsession/Editsession";
-import Index from './components/sessions/index'
+import Index from "./components/sessions/index";
 // import ViewSession from "./components/sessions/ViewSession/ViewSession";
 
 function App() {
@@ -36,7 +35,7 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route path="/login" element={<Login />} /> 
+            <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route index element={<Home />} />
             <Route path="/" element={<Home />} />
@@ -52,15 +51,14 @@ function App() {
             <Route path="/edit" element={<Edit />} />
             <Route path="/new" element={<New />} />
             <Route path="/cancel" element={<Cancel />} />
-              <Route path="/Events" element={<Events />} />
-          <Route path="/Events/Add" element={<AddEvent />} />
-          <Route path="/Events/ViewEvent/:id" element={<ViewSingleEvent />} />
-          <Route path="/Events/Update/:id" element={<UpdateEvent />} />
+            <Route path="/Events" element={<Events />} />
+            <Route path="/Events/Add" element={<AddEvent />} />
+            <Route path="/Events/ViewEvent/:id" element={<ViewSingleEvent />} />
+            <Route path="/Events/Update/:id" element={<UpdateEvent />} />
           </Routes>
         </BrowserRouter>
       </div>
     </UserContextProvider>
-
   );
 }
 
