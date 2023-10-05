@@ -6,7 +6,7 @@ import "../AddSession/addsession.css";
 import Reactquill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Editor from "../../Editor/Editor";
-import { Navigate, useParams,useHistory  } from "react-router-dom";
+import { Navigate, useParams, useHistory } from "react-router-dom";
 const Editsession = () => {
   const { id } = useParams();
   const [title, setTitle] = useState("");
@@ -17,13 +17,15 @@ const Editsession = () => {
   // const history = useHistory();
 
   useEffect(() => {
-    fetch("http://localhost:5000/posts/post/" + id).then((response) => {
-      response.json().then((postInfo) => {
-        setTitle(postInfo.title);
-        setContent(postInfo.content);
-        setSummary(postInfo.summary);
-      });
-    });
+    fetch("https://no-poverty.adaptable.app/posts/post/" + id).then(
+      (response) => {
+        response.json().then((postInfo) => {
+          setTitle(postInfo.title);
+          setContent(postInfo.content);
+          setSummary(postInfo.summary);
+        });
+      }
+    );
   }, []);
 
   async function updatePost(ev) {
@@ -36,11 +38,14 @@ const Editsession = () => {
     if (files?.[0]) {
       data.set("file", files[0]);
     }
-    const response = await fetch("http://localhost:5000/posts/post", {
-      method: "PUT",
-      body: data,
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://no-poverty.adaptable.app/posts/post",
+      {
+        method: "PUT",
+        body: data,
+        credentials: "include",
+      }
+    );
     if (response.ok) {
       setRedirect(true);
     }
@@ -49,8 +54,6 @@ const Editsession = () => {
   if (redirect) {
     return <Navigate to={"/post/" + id} />;
   }
-
-
 
   return (
     <>

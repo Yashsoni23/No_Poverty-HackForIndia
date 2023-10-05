@@ -8,13 +8,19 @@ import BarLoader from "react-spinners/BarLoader";
 export default function Index() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   useEffect(() => {
-    fetch("http://localhost:5000/posts/post").then((response) => {
-      response.json().then((posts) => {
-        setPosts(posts);
-        setLoading(false);
-      });
+    fetch("https://no-poverty.adaptable.app/posts/post").then((response) => {
+      response
+        .json()
+        .then((posts) => {
+          setPosts(posts);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setLoading(false);
+          console.log(error.message);
+        });
     });
   }, []);
 
@@ -22,24 +28,24 @@ export default function Index() {
     // return a spinner if data is still loading
     return (
       <div className="loader-container">
-      <BarLoader color={"#0077FF"}  size={150} />
-    </div>
+        <BarLoader color={"#0077FF"} size={150} />
+      </div>
     );
   }
 
   return (
     <>
-    <Combinenav />
+      <Combinenav />
       {/* {loading ? ( */}
-        <div className="">
-          {/* <BarLoader color={"#0077FF"} loading={loading} size={150} /> */}
-        </div>
+      <div className="">
+        {/* <BarLoader color={"#0077FF"} loading={loading} size={150} /> */}
+      </div>
       {/* // ) : ( */}
-        <div className="post-container">
-          {posts.map((post) => (
-            <ViewSession {...post} />
-          ))}
-        </div>
+      <div className="post-container">
+        {posts.map((post) => (
+          <ViewSession {...post} />
+        ))}
+      </div>
       {/* )} */}
       <Maingooter />
       <Subfooter />

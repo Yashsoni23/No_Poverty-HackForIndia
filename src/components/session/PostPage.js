@@ -10,18 +10,20 @@ export default function PostPage() {
   const { userInfo } = useContext(UserContext);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/posts/post/${id}`).then((response) => {
-      response.json().then((postInfo) => {
-        setPostInfo(postInfo);
-      });
-    });
+    fetch(`https://no-poverty.adaptable.app/posts/post/${id}`).then(
+      (response) => {
+        response.json().then((postInfo) => {
+          setPostInfo(postInfo);
+        });
+      }
+    );
   }, []);
 
   if (!postInfo) return "";
 
   return (
     <div className="post-page">
-        <Combinenav/>
+      <Combinenav />
       <h1>{postInfo.title}</h1>
       <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
       <div className="author">by @{postInfo.author.username}</div>
@@ -47,7 +49,10 @@ export default function PostPage() {
         </div>
       )}
       <div className="image">
-        <img src={`http://localhost:5000/${postInfo.cover}`} alt="" />
+        <img
+          src={`https://no-poverty.adaptable.app/${postInfo.cover}`}
+          alt=""
+        />
       </div>
       <div
         className="content"

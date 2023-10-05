@@ -7,8 +7,7 @@ import fakedata from "./Viewfake";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { formatISO9075 } from "date-fns";
-import moment from 'moment';
-
+import moment from "moment";
 
 export default function ViewSession({
   _id,
@@ -28,14 +27,14 @@ export default function ViewSession({
           <Link to={`/post/${_id}`}>
             <img
               className="card__img1"
-              src={"http://localhost:5000/" + cover}
+              src={"https://no-poverty.adaptable.app/" + cover}
               alt=""
             />
           </Link>
         </div>
         <div className="card__details">
           <Link to="/session">
-            <h1 className="card__title">{title.slice(0,30)}...</h1>
+            <h1 className="card__title">{title.slice(0, 30)}...</h1>
           </Link>
 
           <div className="card__user">

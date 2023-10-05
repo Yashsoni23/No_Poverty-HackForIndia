@@ -5,14 +5,16 @@ import { useEffect, useState } from "react";
 export default function Index() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/posts/post").then((response) => {
+    fetch("https://no-poverty.adaptable.app/posts/post").then((response) => {
       response.json().then((posts) => {
         setPosts(posts);
       });
     });
   }, []);
-  return <>
-  
-  <Combinenav/>
-  {posts.length > 0 && posts.map((post) => <Post {...post} />)}</>;
+  return (
+    <>
+      <Combinenav />
+      {posts.length > 0 && posts.map((post) => <Post {...post} />)}
+    </>
+  );
 }

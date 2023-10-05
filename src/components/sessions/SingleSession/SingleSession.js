@@ -34,12 +34,14 @@ const SingleSession = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/posts/post/${id}`).then((response) => {
-      response.json().then((postInfo) => {
-        setPostInfo(postInfo);
-        setIsLoading(false);
-      });
-    });
+    fetch(`https://no-poverty.adaptable.app/posts/post/${id}`).then(
+      (response) => {
+        response.json().then((postInfo) => {
+          setPostInfo(postInfo);
+          setIsLoading(false);
+        });
+      }
+    );
   }, [id]);
 
   // const handleDelete = () => {

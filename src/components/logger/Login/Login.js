@@ -13,12 +13,15 @@ const Login = () => {
   async function login(ev) {
     console.log(process.env.BACKEND_IP);
     ev.preventDefault();
-    const response = await fetch(process.env.BACKEND_IP + "/auth/login", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://no-poverty.adaptable.app/auth/login",
+      {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      }
+    );
     if (response.ok) {
       response.json().then((userInfo) => {
         setUserInfo(userInfo);

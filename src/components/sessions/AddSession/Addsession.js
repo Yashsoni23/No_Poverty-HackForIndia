@@ -20,11 +20,14 @@ const Addsession = () => {
     data.set("content", content);
     data.set("file", files[0]);
     ev.preventDefault();
-    const response = await fetch("http://localhost:5000/posts/post", {
-      method: "POST",
-      body: data,
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://no-poverty.adaptable.app/posts/post",
+      {
+        method: "POST",
+        body: data,
+        credentials: "include",
+      }
+    );
     if (response.ok) {
       setRedirect(true);
     }

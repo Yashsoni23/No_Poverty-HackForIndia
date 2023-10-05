@@ -8,7 +8,7 @@ import { UserContext } from "../../../context/UserContext";
 const Mainnav = () => {
   const { setUserInfo, userInfo } = useContext(UserContext);
   useEffect(() => {
-    fetch("http://localhost:5000/auth/profile", {
+    fetch("https://no-poverty.adaptable.app/auth/profile", {
       credentials: "include",
     }).then((response) => {
       response.json().then((userImp) => {
@@ -18,7 +18,7 @@ const Mainnav = () => {
   }, []);
 
   function logout() {
-    fetch("http://localhost:5000/auth/logout", {
+    fetch("https://no-poverty.adaptable.app/auth/logout", {
       credentials: "include",
       method: "POST",
     });
@@ -94,7 +94,7 @@ const Mainnav = () => {
         >
           jobs
         </li>
-        <Link to ='/Events'>
+        <Link to="/Events">
           <li
             className={
               colorChange ? "nav__li__section colorChange" : "nav__li__section"

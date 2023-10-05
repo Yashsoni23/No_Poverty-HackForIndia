@@ -5,8 +5,8 @@ import axios from "axios";
 import swal from "sweetalert2";
 import Alert from "../alert/Alert";
 import Combinenav from "../Nav/Combinednav/Combinenav";
-import Subfooter from '../footer/Subfooter/Subfooter'
-import Maingooter from '../footer/Mainfooter/Maingooter'
+import Subfooter from "../footer/Subfooter/Subfooter";
+import Maingooter from "../footer/Mainfooter/Maingooter";
 export default function New() {
   const [productname, setProductname] = useState("");
   const [unitprice, setUnitprice] = useState("");
@@ -27,7 +27,7 @@ export default function New() {
     };
 
     axios
-      .post("http://localhost:5000/product/add", newProduct)
+      .post("https://no-poverty.adaptable.app/product/add", newProduct)
       .then(() => {
         // alert("Product Added");
         Alert("Product added", "product added successfully");
@@ -36,11 +36,10 @@ export default function New() {
         alert(error);
       });
 
-      setTimeout(()=> {
-        window.location.replace("http://localhost:3000/view");
-      },1500)
+    setTimeout(() => {
+      window.location.replace("/view");
+    }, 1500);
   }
-
 
   return (
     <div className="added">
