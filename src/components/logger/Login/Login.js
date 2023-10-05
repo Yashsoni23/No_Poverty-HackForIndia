@@ -11,8 +11,9 @@ const Login = () => {
   const [redirect, setRedirect] = useState(false);
   const { setUserInfo } = useContext(UserContext);
   async function login(ev) {
+    console.log(process.env.BACKEND_IP);
     ev.preventDefault();
-    const response = await fetch("http://localhost:5000/auth/login", {
+    const response = await fetch(process.env.BACKEND_IP + "/auth/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
@@ -39,6 +40,7 @@ const Login = () => {
           <form action="" onSubmit={login}>
             <div className="log__conditions">
               <label className="login__label">username</label>
+              <h1 className="text-red-500">{process.env.BACKEND_IP}test</h1>
               <input
                 type="input"
                 placeholder="Jhon smith"
