@@ -9,7 +9,10 @@ module.exports = {
         "ButtonColor": "#A46570",
         "TextColor1": " #000000 ",
         "TextColor2": "#6C6C6C",
+
+       
       },
+
     },
   },
   plugins: [],
